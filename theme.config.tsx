@@ -13,6 +13,7 @@ function useHead() {
       <link rel="icon" type="image/x-icon" href="/static/cox.ico" />
       <meta httpEquiv="Content-Language" content="en" />
       <meta name="description" content={description} />
+      <meta name="og:title" content={title} />
       <meta name="og:description" content={description} />
       <meta name="og:url" content={url} />
     </>
