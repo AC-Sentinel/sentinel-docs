@@ -18,21 +18,6 @@ function useHead() {
   );
 }
 
-function useNextSeoProps() {
-  const { asPath } = useRouter();
-  const arr = asPath.replace(/[-_]/g, ' ').split('/');
-  const category = (arr[1][0] !== '#' && arr[1]) || 'Community Ox';
-  const rawTitle = arr[arr.length - 1];
-  const title = /[a-z]/.test(rawTitle) && /[A-Z]/.test(rawTitle) ? rawTitle : '%s';
-  console.log(rawTitle)
-  return {
-    titleTemplate: `${title} - ${
-      rawTitle === category ? 'Documentation' : category.replace(/(^\w|\s\w)/g, (m) => m.toUpperCase())
-    }`,
-  };
-}
-
-
 const config: DocsThemeConfig = {
   logo: (
     <div
@@ -59,8 +44,7 @@ const config: DocsThemeConfig = {
   toc: {
     backToTop: true,
   },
-  head: useHead,
-  useNextSeoProps: useNextSeoProps,
+  head: useHead
 }
 
 export default config

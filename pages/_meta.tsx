@@ -1,4 +1,6 @@
 export default {
+  index: 'Introduction',
   install: "Installation",
-  temp: "Temp Permmision List"
+  templist: "Temp Permission List",
+  "api-ref": "API Reference"
 }
