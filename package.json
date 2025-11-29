@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start --inspect"
+    "start": "next start"
   },
   "repository": {
     "type": "git",
