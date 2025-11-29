@@ -1,11 +1,50 @@
-# Introduction
- 
-Welcome to Nextra! This is a basic docs template. You can use it as a starting point for your own project :)
+# Installation
 
-## What is Nextra?
+Follow these steps to install and configure **Sentinel-AC** on your FiveM server.
 
-A **simple**, **powerful** and **flexible** site generation framework with everything you love from Next.js.
+---
 
-## Documentation
+## 1. Download the Required Files
 
-The documentation is available at [https://nextra.site](https://nextra.site).
+Make sure to download all the necessary dependencies before installation.
+
+**Required Resource:**
+- [screenshot-basic](https://github.com/project-error/screenshot-basic/releases/download/1.0.1/screenshot-basic.zip)
+
+Place the downloaded resource inside your server’s `resources` folder.
+
+---
+
+## 2. Add Immunity Permissions to `server.cfg`
+
+To ensure staff members have immunity in Sentinel-AC, add the following lines to your `server.cfg` file:
+
+```cfg
+add_ace group.developer sentinel.immune allow
+add_ace group.superadmin sentinel.immune allow
+add_ace group.admin sentinel.immune allow
+add_ace group.moderator sentinel.immune allow
+````
+
+This grants immunity to staff roles, preventing them from being affected by Sentinel-AC’s automatic actions.
+
+---
+
+## 3. Enabling the Built-in Admin Menu
+
+If you’d like to use Sentinel-AC’s built-in admin menu, add the following permissions to your `server.cfg`:
+
+```cfg
+add_ace group.developer sentinel.menu.clear_vehicles allow
+add_ace group.developer sentinel.menu.clear_peds allow
+add_ace group.developer sentinel.menu.clear_objects allow
+add_ace group.developer sentinel.menu.clear_all allow
+```
+
+These permissions allow staff/developers to use the admin menu to clear vehicles, peds, objects, or all entities directly from the menu.
+
+> ⚙️ **Note:** More admin menu permissions will be added in future updates.
+
+---
+
+Once done, restart your server and enjoy Sentinel-AC’s protection and admin tools.

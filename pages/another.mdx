@@ -1,31 +1,39 @@
-# Another Page
+# Temp Permission List
 
-```js filename="demo.js" {3} copy
-let a = 1;
+The Temp Permission List defines all available temporary permissions that can be granted to a player using the `AddTempPermission` export in Sentinel-AC.
 
-console.log(a);
+These permissions allow administrators or developers to temporarily bypass specific anti-cheat modules or enable special functions for testing, debugging, or trusted staff operations. Temporary permissions are automatically revoked when the player disconnects or the server restarts.
+
+Each permission corresponds to a module or feature inside Sentinel-AC.
+
+## How It Works
+
+**Give a temporary permission:**
+```lua
+exports["sentinel-ac"]:AddTempPermission(playerId, "sentinel.module_name", true)
+````
+
+**Remove a temporary permission:**
+
+```lua
+exports["sentinel-ac"]:AddTempPermission(playerId, "sentinel.module_name", false)
 ```
 
-## Component
+---
 
-import { useState } from 'react'
+## Available Temporary Permissions
 
-{/* Import CSS modules */}
-import styles from '../components/counters.module.css'
+| Permission Name            | Description                                                                                                  |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| `sentinel.entity`          | Bypasses entity detection modules such as anti-nuke, anti-mass entity, and related protections.              |
+| `sentinel.explosion`       | Bypasses explosion detection modules, including blacklisted explosions and mass explosion protection.        |
+| `sentinel.weapon`          | Bypasses weapon-related detections such as anti-kill, unauthorized weapon usage, and similar modules.        |
+| `sentinel.secure_isolated` | Bypasses Secure Event (Isolated Type) detections, allowing temporary safe testing of isolated secure events. |
+| `sentinel.secure_hooked`   | Bypasses Secure Event (Hooked Type) detections, useful for developers testing hooked event security.         |
+| `sentinel.clear_peds`      | Allows the player to clear all peds without being restricted by Sentinel-AC.                                 |
+| `sentinel.clear_vehicles`  | Allows the player to clear all vehicles without detection or restriction.                                    |
+| `sentinel.clear_objects`   | Allows the player to clear all objects without detection or restriction.                                     |
 
-export const Counter = () => {
-  const [count, setCount] = useState(0);
-  return (
-    <div>
-      <button onClick={() => setCount(count + 1)} className={styles.counter}>Clicked {count} times</button>
-    </div>
-  );
-};
+---
 
-<Counter/>
-
-## External Component
-
-import Counters from '../components/counters'
-
-<Counters />
+More temporary permissions will be added in future Sentinel-AC updates. Always check the documentation or changelog for the latest additions.
