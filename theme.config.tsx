@@ -14,6 +14,11 @@ function useHead() {
       <link rel="icon" type="image/x-icon" href="/static/logo.ico" />
       <meta httpEquiv="Content-Language" content="en" />
       <title>Sentinel-AC</title>
+      <meta property="og:title" content="Sentiel-AC Documentation" />
+      <meta property="og:description" content="A FiveM Anticheat Documentation" />
+      <meta property="og:image" content="/static/og.webp" />
+      <meta property="og:url" content="https://docs.sentinel-ac.xyz/" />
+      <meta property="og:type" content="website" />
     </>
   );
 }
