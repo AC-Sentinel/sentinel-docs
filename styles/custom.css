@@ -3,7 +3,7 @@
 
 /* ── Root overrides ── */
 :root {
-  --nextra-primary-hue: 245;          /* indigo accent */
+  --nextra-primary-hue: 0;          /* red accent */
   --font-body: 'DM Sans', sans-serif;
   --font-mono: 'DM Mono', monospace;
 }
@@ -48,7 +48,7 @@ article {
   letter-spacing: -.04em;
   line-height: 1.15;
   margin-bottom: 16px;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6, #06b6d4);
+  background: linear-gradient(135deg, #ef4444, #f97316, #dc2626);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -73,7 +73,7 @@ article {
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  background: #6366f1;
+  background: #ef4444;
   color: #fff !important;
   padding: 11px 22px;
   border-radius: 8px;
@@ -81,13 +81,13 @@ article {
   font-size: .95rem;
   text-decoration: none !important;
   transition: background .15s, transform .15s, box-shadow .15s;
-  box-shadow: 0 4px 14px rgba(99,102,241,.35);
+  box-shadow: 0 4px 14px rgba(239,68,68,.35);
 }
 
 .btn-primary:hover {
-  background: #4f46e5;
+  background: #dc2626;
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(99,102,241,.4);
+  box-shadow: 0 6px 20px rgba(239,68,68,.4);
 }
 
 .btn-secondary {
@@ -124,8 +124,8 @@ article {
 }
 
 .feature-card:hover {
-  border-color: #6366f1;
-  box-shadow: 0 4px 20px rgba(99,102,241,.1);
+  border-color: #ef4444;
+  box-shadow: 0 4px 20px rgba(239,68,68,.1);
   transform: translateY(-2px);
 }
 

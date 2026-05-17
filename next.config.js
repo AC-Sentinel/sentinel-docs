@@ -11,10 +11,14 @@ const withNextra = require('nextra')({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
+
   images: {
     unoptimized: true,
   },
+
   trailingSlash: true,
+
+  // IMPORTANT: leave these empty for custom domain
   basePath: '',
   assetPrefix: '',
 }
