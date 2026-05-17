@@ -1,3 +1,6 @@
-.next
-node_modules
-bun.lock
+node_modules/
+.next/
+out/
+.env
+.env.local
+.DS_Store

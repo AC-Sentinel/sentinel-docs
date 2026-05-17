@@ -1,14 +1,20 @@
-import nextra from 'nextra'
-
-const withNextra = nextra({
+const withNextra = require('nextra')({
   theme: 'nextra-theme-docs',
-  themeConfig: './theme.config.tsx'
+  themeConfig: './theme.config.jsx',
+  mdxOptions: {
+    remarkPlugins: [],
+    rehypePlugins: [],
+  },
+  defaultShowCopyCode: true,
 })
 
-export default withNextra({
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   output: 'export',
   images: {
-    unoptimized: true
+    unoptimized: true,
   },
-  basePath: '/sentinel-docs', // your repo name
-})
+  trailingSlash: true,
+}
+
+module.exports = withNextra(nextConfig)

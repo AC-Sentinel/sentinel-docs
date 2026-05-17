@@ -1,0 +1,14 @@
+{
+  "-- intro": {
+    "type": "separator",
+    "title": "Introduction"
+  },
+  "getting-started": "Getting Started",
+  "installation": "Installation",
+  "-- usage": {
+    "type": "separator",
+    "title": "API"
+  },
+  "server-exports": "Server Exports",
+  "temp-list": "Temp Permission List"
+}

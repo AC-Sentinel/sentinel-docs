@@ -1,0 +1,158 @@
+
+# Server Exports
+
+The **Sentinel-AC Server Exports API** provides a set of powerful functions that allow developers to integrate Sentinel-AC’s features directly into their own scripts and server-side logic.
+
+These exports make it easy to interact with Sentinel-AC’s core systems — such as checking player status, triggering detections, managing permissions, and handling administrative actions — without modifying the main resource.
+
+Use this section to understand each available export, its parameters, and how to properly implement them in your FiveM scripts.
+
+> ⚙️ **Note:** Always ensure you're using the latest version of Sentinel-AC to access updated exports and maintain compatibility.
+
+### **isLoaded**
+Checks if Sentinel-AC has been successfully initialized.
+
+**Return:**  
+`boolean` — true if loaded.
+
+**Example:**
+```lua
+if exports["sentinel-ac"]:isLoaded() then
+    print("Sentinel-AC is active and running.")
+end
+````
+
+---
+
+### **GetPlayerDetails**
+
+Retrieves detailed player information including coordinates, identifiers, and metadata.
+
+**Arguments:**
+
+* `playerId` — target player
+* `reason` — internal reason/log note
+* `etc` — any extra context
+
+**Returns:**
+`table` with player details
+
+**Example:**
+
+```lua
+local details = exports["sentinel-ac"]:GetPlayerDetails(playerId, "suspicious activity", "manual check")
+print(json.encode(details))
+```
+
+---
+
+### **AddTempPermission**
+
+Temporarily grants or removes a Sentinel-AC module permission.
+
+Use this for:
+
+* Developer testing
+* Debugging
+* Special short-term permissions
+
+**Arguments:**
+
+* `playerId`
+* `module` — e.g., `"sentinel.explosion"`
+* `bool` — true = add, false = remove
+
+**Example:**
+
+```lua
+exports["sentinel-ac"]:AddTempPermission(playerId, "sentinel.explosion", true)
+```
+
+---
+
+### **RefreshBans**
+
+Reloads ban data from storage.
+Use this if bans were manually edited.
+
+**Returns:**
+`result` (boolean), `totalBans` (number)
+
+**Example:**
+
+```lua
+local result, totalBans = exports["sentinel-ac"]:RefreshBans()
+if result then
+    print(("Ban list refreshed successfully, Total bans: %s"):format(totalBans))
+end
+```
+
+---
+
+### **BanPlayer**
+
+Bans a player with optional Discord webhook logging.
+
+**Arguments:**
+
+* `playerId`
+* `reason`
+* `message` — webhook message
+* `webhook` — Discord webhook URL
+* `url` — optional image for embed
+
+**Example:**
+
+```lua
+exports["sentinel-ac"]:BanPlayer(playerId, "Cheating", "Player banned for cheating.", "https://discord.com/api/webhooks/...", "https://example.com/image.png")
+```
+
+---
+
+### **UnbanPlayer**
+
+Removes a ban entry.
+
+**Arguments:**
+
+* `id` — ban ID
+* `webhook` — webhook for log
+
+**Example:**
+
+```lua
+local result = exports["sentinel-ac"]:UnbanPlayer(12, "https://discord.com/api/webhooks/...")
+if result then
+    print('removed successfully')
+end
+```
+
+---
+
+### **KickPlayer**
+
+Kicks a player from the server with optional webhook logging.
+
+**Arguments:**
+
+* `player`
+* `reason`
+* `message`
+* `webhook`
+* `url?` — optional embed image
+
+**Example:**
+
+```lua
+exports["sentinel-ac"]:KickPlayer(playerId, "AFK for too long", "Player kicked for inactivity.", "https://discord.com/api/webhooks/...", "https://example.com/kick.png")
+```
+
+---
+
+All exports are available **only after Sentinel-AC is loaded**, so always check:
+
+```lua
+if exports["sentinel-ac"]:isLoaded() then
+    -- safe to call other exports
+end
+```
